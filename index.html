@@ -4,7 +4,8 @@
   <meta charset="UTF-8" />
   <!-- STEP 1: The Viewport Meta Tag - "The Key to the Kingdom" -->
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Project 2 – The Art of Fluidity</title>
+  <link rel="stylesheet" href="style.css">
+  <title>Project 2 - The Art of Fluidity</title>
 
   <!-- Tailwind CSS CDN -->
   <script src="https://cdn.tailwindcss.com"></script>
@@ -50,115 +51,6 @@
       },
     }
   </script>
-
-  <style>
-    /* ── Fluid Typography with clamp() ────────────────────────────────── */
-    :root {
-      --fs-hero:    clamp(2.2rem, 6vw, 5rem);
-      --fs-section: clamp(1.5rem, 3.5vw, 2.8rem);
-      --fs-card:    clamp(1rem,   2vw,  1.25rem);
-      --fs-body:    clamp(0.9rem, 1.5vw, 1.05rem);
-    }
-
-    body { font-family: 'DM Sans', sans-serif; background: #f8fafd; color: #0a1628; }
-
-    .font-display { font-family: 'Syne', sans-serif; }
-
-    .hero-title  { font-size: var(--fs-hero);    line-height: 1.05; }
-    .section-title { font-size: var(--fs-section); line-height: 1.15; }
-    .card-title  { font-size: var(--fs-card); }
-    .body-text   { font-size: var(--fs-body); }
-
-    /* ── Blueprint grid background ────────────────────────────────────── */
-    .blueprint-bg {
-      background-color: #f0f6ff;
-      background-image:
-        linear-gradient(rgba(11,127,232,.07) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(11,127,232,.07) 1px, transparent 1px);
-      background-size: 40px 40px;
-    }
-
-    /* ── Glassmorphism card ───────────────────────────────────────────── */
-    .glass {
-      background: rgba(255,255,255,0.72);
-      backdrop-filter: blur(14px);
-      -webkit-backdrop-filter: blur(14px);
-      border: 1px solid rgba(255,255,255,0.6);
-    }
-
-    /* ── Fluid wave divider ───────────────────────────────────────────── */
-    .wave { display: block; width: 100%; overflow: hidden; line-height: 0; }
-    .wave svg { display: block; }
-
-    /* ── Touch targets (min 44×44 px) ────────────────────────────────── */
-    .touch-target {
-      min-height: 44px;
-      min-width:  44px;
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-    }
-
-    /* ── Popover navigation (No JS required) ─────────────────────────── */
-    #mobile-nav {
-      position: fixed;
-      inset: 0 0 0 auto;
-      width: min(75vw, 320px);
-      background: white;
-      box-shadow: -8px 0 40px rgba(0,0,0,.15);
-      border-left: 1px solid #e2ecff;
-      padding: 2rem 1.5rem;
-      margin: 0;
-      border-radius: 0;
-      z-index: 100;
-      transition: transform .35s cubic-bezier(.16,1,.3,1), opacity .3s ease;
-      display: flex;
-      flex-direction: column;
-      gap: 0.5rem;
-    }
-    #mobile-nav:not(:popover-open) { display: none; }
-    #mobile-nav::backdrop {
-      background: rgba(10,22,40,.45);
-      backdrop-filter: blur(3px);
-    }
-
-    /* ── Scroll-triggered animation helper ───────────────────────────── */
-    .reveal {
-      opacity: 0;
-      transform: translateY(28px);
-      transition: opacity .6s ease, transform .6s ease;
-    }
-    .reveal.visible {
-      opacity: 1;
-      transform: translateY(0);
-    }
-
-    /* ── Card hover lift ─────────────────────────────────────────────── */
-    .card-lift {
-      transition: transform .25s ease, box-shadow .25s ease;
-    }
-    .card-lift:hover {
-      transform: translateY(-6px);
-      box-shadow: 0 20px 50px rgba(11,127,232,.13);
-    }
-
-    /* ── Active nav link underline ───────────────────────────────────── */
-    .nav-link {
-      position: relative;
-      transition: color .2s;
-    }
-    .nav-link::after {
-      content: '';
-      position: absolute;
-      left: 0; bottom: -3px;
-      height: 2px; width: 0;
-      background: #0b7fe8;
-      transition: width .3s ease;
-      border-radius: 99px;
-    }
-    .nav-link:hover::after { width: 100%; }
-    .nav-link:hover { color: #0b7fe8; }
-  </style>
 </head>
 
 <body class="font-body overflow-x-hidden">
@@ -244,17 +136,17 @@
     <div class="absolute top-10 right-10 w-64 h-64 md:w-96 md:h-96 bg-azure-400/20 rounded-full blur-3xl pointer-events-none"></div>
     <div class="absolute -bottom-20 -left-20 w-72 h-72 bg-azure-200/40 rounded-full blur-3xl pointer-events-none"></div>
 
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 md:py-28 w-full">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6 md:py-2 w-full">
       <!-- CSS Grid layout: 1 col mobile → 2 col desktop -->
       <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
 
         <!-- Text column -->
         <div class="animate-fade-up">
-          <span class="inline-flex items-center gap-2 px-3 py-1 bg-azure-100 text-azure-700 rounded-full text-sm font-semibold mb-6">
+          <span class="inline-flex items-center gap-2 px-3  bg-azure-100 text-azure-700 rounded-full text-sm font-semibold mb-6">
             <span class="w-2 h-2 rounded-full bg-azure-500 animate-pulse"></span>
             DecodeLabs · Project 2
           </span>
-          <h1 class="hero-title font-display font-extrabold text-ink mb-6 leading-tight">
+          <h1 class="hero-title font-extrabold text-ink mb-6 leading-tight md:text-[50px]">
             Building the <span class="text-azure-600">Fluid</span><br/>Web, One Breakpoint at a Time.
           </h1>
           <p class="body-text text-gray-500 max-w-lg mb-10 leading-relaxed">
@@ -274,48 +166,7 @@
         </div>
 
         <!-- Visual card column -->
-        <div class="animate-fade-up" style="animation-delay:.15s">
-          <div class="glass rounded-3xl p-6 md:p-8 shadow-2xl shadow-azure-100 relative">
-            <!-- Screen size indicator (fluid) -->
-            <div class="flex items-center gap-3 mb-6">
-              <div class="flex gap-1.5">
-                <div class="w-3 h-3 rounded-full bg-red-400"></div>
-                <div class="w-3 h-3 rounded-full bg-yellow-400"></div>
-                <div class="w-3 h-3 rounded-full bg-green-400"></div>
-              </div>
-              <div class="flex-1 bg-gray-100 rounded-full h-6 flex items-center px-4">
-                <span class="text-xs text-gray-400 font-mono">fluidity.dev</span>
-              </div>
-            </div>
-            <!-- Mini responsive layout preview using Grid + Flexbox -->
-            <div class="grid grid-cols-3 gap-2 mb-4">
-              <div class="col-span-3 bg-azure-600 rounded-xl h-10 flex items-center px-4">
-                <div class="flex gap-2">
-                  <div class="w-12 h-2 rounded bg-white/40"></div>
-                  <div class="w-8 h-2 rounded bg-white/30"></div>
-                </div>
-              </div>
-              <div class="col-span-1 bg-azure-100 rounded-xl h-32 flex flex-col gap-2 p-3">
-                <div class="w-full h-2 rounded bg-azure-300"></div>
-                <div class="w-3/4 h-2 rounded bg-azure-200"></div>
-                <div class="w-1/2 h-2 rounded bg-azure-200"></div>
-              </div>
-              <div class="col-span-2 grid grid-cols-2 gap-2">
-                <div class="bg-gradient-to-br from-azure-400 to-azure-600 rounded-xl h-14"></div>
-                <div class="bg-gradient-to-br from-azure-300 to-azure-500 rounded-xl h-14"></div>
-                <div class="bg-gradient-to-br from-azure-200 to-azure-400 rounded-xl h-14"></div>
-                <div class="bg-azure-50 rounded-xl h-14 border border-azure-100"></div>
-              </div>
-              <div class="col-span-3 bg-ink rounded-xl h-8 flex items-center px-4">
-                <div class="w-20 h-1.5 rounded bg-white/20"></div>
-              </div>
-            </div>
-            <div class="flex items-center justify-between text-xs text-gray-400 font-mono">
-              <span>Mobile · 375px</span>
-              <span class="text-azure-500">↔ Responsive</span>
-              <span>Desktop · 1440px</span>
-            </div>
-          </div>
+         <img class="rounded-[10px] w-full h-full" src="Image/I will be your expert in website development with HTML CSS tailwind react next js.jpeg" alt="Wallpaper">
         </div>
       </div>
     </div>
@@ -339,7 +190,7 @@
         <!-- Text -->
         <div class="reveal">
           <p class="text-azure-500 font-semibold text-sm uppercase tracking-widest mb-4">About This Build</p>
-          <h2 class="section-title font-display font-bold text-ink mb-6">
+          <h2 class="section-title font-bold text-ink mb-6">
             Content is Like Water — It Should Flow Anywhere
           </h2>
           <p class="body-text text-gray-500 leading-relaxed mb-6">
@@ -355,20 +206,20 @@
 
         <!-- Stats grid (Flexbox) -->
         <div class="reveal grid grid-cols-2 gap-4">
-          <div class="glass rounded-2xl p-6 card-lift border border-azure-100">
-            <p class="text-3xl md:text-4xl font-display font-extrabold text-azure-600 mb-1">62%</p>
+          <div class="glass rounded-2xl p-6 card-lift border border-azure-100 shadow">
+            <p class="text-3xl md:text-4xl font-extrabold text-azure-600 mb-1">62%</p>
             <p class="text-sm text-gray-500">of traffic is mobile</p>
           </div>
-          <div class="glass rounded-2xl p-6 card-lift border border-azure-100">
-            <p class="text-3xl md:text-4xl font-display font-extrabold text-azure-600 mb-1">44px</p>
+          <div class="glass rounded-2xl p-6 card-lift border border-azure-100 shadow">
+            <p class="text-3xl md:text-4xl font-extrabold text-azure-600 mb-1">44px</p>
             <p class="text-sm text-gray-500">min touch target size</p>
           </div>
-          <div class="glass rounded-2xl p-6 card-lift border border-azure-100">
-            <p class="text-3xl md:text-4xl font-display font-extrabold text-azure-600 mb-1">500%</p>
+          <div class="glass rounded-2xl p-6 card-lift border border-azure-100 shadow">
+            <p class="text-3xl md:text-4xl font-extrabold text-azure-600 mb-1">500%</p>
             <p class="text-sm text-gray-500">max zoom (WCAG)</p>
           </div>
-          <div class="glass rounded-2xl p-6 card-lift border border-azure-100">
-            <p class="text-3xl md:text-4xl font-display font-extrabold text-azure-600 mb-1">0 JS</p>
+          <div class="glass rounded-2xl p-6 card-lift border border-azure-100 shadow">
+            <p class="text-3xl md:text-4xl font-extrabold text-azure-600 mb-1">0 JS</p>
             <p class="text-sm text-gray-500">for the nav popover</p>
           </div>
         </div>
@@ -397,20 +248,19 @@
         <!-- Card 1 -->
         <article class="glass rounded-2xl overflow-hidden card-lift reveal border border-azure-100">
           <div class="h-44 bg-gradient-to-br from-azure-500 to-azure-800 flex items-center justify-center relative overflow-hidden">
-            <div class="absolute inset-0 opacity-20" style="background-image: linear-gradient(rgba(255,255,255,.15) 1px, transparent 1px), linear-gradient(90deg,rgba(255,255,255,.15) 1px,transparent 1px); background-size:20px 20px;"></div>
-            <span class="text-5xl">📐</span>
+          <img class="w-full h-[180px]" src="Image/HTML 5 - Sticker!.jpeg" alt="html-sticker">
           </div>
           <div class="p-6 flex flex-col gap-3">
             <div class="flex items-center justify-between">
               <span class="text-xs font-semibold text-azure-500 uppercase tracking-wider">Project 1</span>
               <span class="text-xs bg-green-100 text-green-700 px-2 py-0.5 rounded-full font-medium">Complete</span>
             </div>
-            <h3 class="card-title font-display font-bold text-ink">HTML Foundations</h3>
+            <h3 class="card-title font-bold text-ink">HTML Foundations</h3>
             <p class="text-sm text-gray-500 leading-relaxed">Semantic HTML structure, accessibility basics, and document outline.</p>
             <div class="flex flex-wrap gap-2 mt-1">
               <span class="text-xs bg-azure-50 text-azure-700 px-2 py-1 rounded-lg font-medium">HTML5</span>
               <span class="text-xs bg-azure-50 text-azure-700 px-2 py-1 rounded-lg font-medium">Semantic</span>
-              <span class="text-xs bg-azure-50 text-azure-700 px-2 py-1 rounded-lg font-medium">A11y</span>
+  
             </div>
           </div>
         </article>
@@ -418,23 +268,22 @@
         <!-- Card 2 (Current) -->
         <article class="rounded-2xl overflow-hidden card-lift reveal border-2 border-azure-500 relative"
                  style="background: white; box-shadow: 0 0 0 4px rgba(11,127,232,.08);">
-          <div class="absolute top-4 right-4 z-10 bg-azure-600 text-white text-xs font-bold px-3 py-1 rounded-full">Current</div>
+          <div class="absolute top-6 right-4 z-10 bg-green-700 text-white text-xs font-bold px-3 py-1 rounded-full">Current</div>
           <div class="h-44 bg-gradient-to-br from-azure-400 to-ink flex items-center justify-center relative overflow-hidden">
-            <div class="absolute inset-0 opacity-20" style="background-image: linear-gradient(rgba(255,255,255,.15) 1px, transparent 1px), linear-gradient(90deg,rgba(255,255,255,.15) 1px,transparent 1px); background-size:20px 20px;"></div>
-            <span class="text-5xl">🌊</span>
+         <img class="h-[180px]" src="Image/CSS3 Flex Layout and Its Usability _ Geekboots.jpeg" alt="responsiveness">
           </div>
           <div class="p-6 flex flex-col gap-3">
             <div class="flex items-center justify-between">
               <span class="text-xs font-semibold text-azure-500 uppercase tracking-wider">Project 2</span>
-              <span class="text-xs bg-azure-100 text-azure-700 px-2 py-0.5 rounded-full font-medium">In Progress</span>
+              <span class="text-xs bg-yellow-500 text-white px-2 py-0.5 rounded-full font-medium">In Progress</span>
             </div>
-            <h3 class="card-title font-display font-bold text-ink">Responsive Web Layout</h3>
+            <h3 class="card-title font-bold text-ink">Responsive Web Layout</h3>
             <p class="text-sm text-gray-500 leading-relaxed">Mobile-first responsive design with Grid, Flexbox, fluid typography and Popover API navigation.</p>
             <div class="flex flex-wrap gap-2 mt-1">
               <span class="text-xs bg-azure-50 text-azure-700 px-2 py-1 rounded-lg font-medium">CSS Grid</span>
               <span class="text-xs bg-azure-50 text-azure-700 px-2 py-1 rounded-lg font-medium">Flexbox</span>
               <span class="text-xs bg-azure-50 text-azure-700 px-2 py-1 rounded-lg font-medium">Tailwind</span>
-              <span class="text-xs bg-azure-50 text-azure-700 px-2 py-1 rounded-lg font-medium">clamp()</span>
+             
             </div>
           </div>
         </article>
@@ -442,14 +291,14 @@
         <!-- Card 3 -->
         <article class="glass rounded-2xl overflow-hidden card-lift reveal border border-azure-100 opacity-70">
           <div class="h-44 bg-gradient-to-br from-gray-300 to-gray-500 flex items-center justify-center relative overflow-hidden">
-            <span class="text-5xl">🔒</span>
+        <img class="w-full h-[180px]" src="Image/Javascript.jpeg" alt="js">
           </div>
           <div class="p-6 flex flex-col gap-3">
             <div class="flex items-center justify-between">
               <span class="text-xs font-semibold text-gray-400 uppercase tracking-wider">Project 3</span>
               <span class="text-xs bg-gray-100 text-gray-500 px-2 py-0.5 rounded-full font-medium">Locked</span>
             </div>
-            <h3 class="card-title font-display font-bold text-gray-400">JavaScript Interactions</h3>
+            <h3 class="card-title  font-bold text-gray-400">JavaScript Interactions</h3>
             <p class="text-sm text-gray-400 leading-relaxed">Complete Project 2 to unlock this milestone.</p>
             <div class="flex flex-wrap gap-2 mt-1">
               <span class="text-xs bg-gray-50 text-gray-400 px-2 py-1 rounded-lg font-medium">JS</span>
@@ -471,7 +320,7 @@
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="text-center mb-14 reveal">
         <p class="text-azure-500 font-semibold text-sm uppercase tracking-widest mb-3">Technical Skills</p>
-        <h2 class="section-title font-display font-bold text-ink">What Powers This Page</h2>
+        <h2 class="section-title font-bold text-ink">What Powers This Page</h2>
       </div>
 
       <!-- Grid for skill category blocks -->
@@ -479,8 +328,8 @@
 
         <!-- Skill block: Layout -->
         <div class="glass rounded-2xl p-7 card-lift reveal border border-azure-100">
-          <div class="w-12 h-12 bg-azure-600 rounded-2xl flex items-center justify-center text-white text-2xl mb-5">⚡</div>
-          <h3 class="font-display font-bold text-xl text-ink mb-3">Layout System</h3>
+          <div class="w-12 h-12 bg-azure-600 rounded-2xl flex items-center justify-center text-white text-2xl mb-5"></div>
+          <h3 class="font-bold text-xl text-ink mb-3">Layout System</h3>
           <p class="text-sm text-gray-500 mb-5 leading-relaxed">Grid for the house, Flexbox for the furniture. Two-dimensional architecture meets one-dimensional specialist.</p>
           <!-- Flexbox skill tags -->
           <div class="flex flex-wrap gap-2">
@@ -493,11 +342,11 @@
 
         <!-- Skill block: Typography -->
         <div class="glass rounded-2xl p-7 card-lift reveal border border-azure-100">
-          <div class="w-12 h-12 bg-azure-600 rounded-2xl flex items-center justify-center text-white text-2xl mb-5">🔤</div>
-          <h3 class="font-display font-bold text-xl text-ink mb-3">Fluid Typography</h3>
+          <div class="w-12 h-12 bg-azure-600 rounded-2xl flex items-center justify-center text-white text-2xl mb-5"></div>
+          <h3 class="font-bold text-xl text-ink mb-3">Fluid Typography</h3>
           <p class="text-sm text-gray-500 mb-5 leading-relaxed">Font sizes that scale smoothly across all viewports using clamp() — no abrupt jumps at breakpoints.</p>
           <div class="flex flex-wrap gap-2">
-            <span class="text-xs bg-azure-600 text-white px-3 py-1.5 rounded-lg font-semibold">clamp()</span>
+
             <span class="text-xs bg-azure-100 text-azure-700 px-3 py-1.5 rounded-lg font-semibold">rem units</span>
             <span class="text-xs bg-azure-100 text-azure-700 px-3 py-1.5 rounded-lg font-semibold">vw units</span>
           </div>
@@ -506,7 +355,7 @@
         <!-- Skill block: Navigation -->
         <div class="glass rounded-2xl p-7 card-lift reveal border border-azure-100">
           <div class="w-12 h-12 bg-azure-600 rounded-2xl flex items-center justify-center text-white text-2xl mb-5">☰</div>
-          <h3 class="font-display font-bold text-xl text-ink mb-3">Popover Navigation</h3>
+          <h3 class="font-bold text-xl text-ink mb-3">Popover Navigation</h3>
           <p class="text-sm text-gray-500 mb-5 leading-relaxed">Hamburger menu built with the native HTML Popover API — no JavaScript, keyboard accessible, with a backdrop.</p>
           <div class="flex flex-wrap gap-2">
             <span class="text-xs bg-azure-600 text-white px-3 py-1.5 rounded-lg font-semibold">Popover API</span>
@@ -517,8 +366,8 @@
 
         <!-- Skill block: Mobile-First -->
         <div class="glass rounded-2xl p-7 card-lift reveal border border-azure-100">
-          <div class="w-12 h-12 bg-azure-600 rounded-2xl flex items-center justify-center text-white text-2xl mb-5">📱</div>
-          <h3 class="font-display font-bold text-xl text-ink mb-3">Mobile-First CSS</h3>
+          <div class="w-12 h-12 bg-azure-600 rounded-2xl flex items-center justify-center text-white text-2xl mb-5"></div>
+          <h3 class="font-bold text-xl text-ink mb-3">Mobile-First CSS</h3>
           <p class="text-sm text-gray-500 mb-5 leading-relaxed">Base styles target mobile. Complexity is added as screen space grows — never taken away.</p>
           <div class="flex flex-wrap gap-2">
             <span class="text-xs bg-azure-600 text-white px-3 py-1.5 rounded-lg font-semibold">@media min-width</span>
@@ -528,9 +377,9 @@
 
         <!-- Skill block: Accessibility -->
         <div class="glass rounded-2xl p-7 card-lift reveal border border-azure-100">
-          <div class="w-12 h-12 bg-azure-600 rounded-2xl flex items-center justify-center text-white text-2xl mb-5">♿</div>
-          <h3 class="font-display font-bold text-xl text-ink mb-3">Accessibility</h3>
-          <p class="text-sm text-gray-500 mb-5 leading-relaxed">44×44px touch targets, user-scalable zoom (up to 500%), ARIA labels, and WCAG compliance.</p>
+          <div class="w-12 h-12 bg-azure-600 rounded-2xl flex items-center justify-center text-white text-2xl mb-5"></div>
+          <h3 class="font-bold text-xl text-ink mb-3">Accessibility</h3>
+          <p class="text-sm text-gray-500 mb-5 leading-relaxed">44x44px touch targets, user-scalable zoom (up to 500%), ARIA labels, and WCAG compliance.</p>
           <div class="flex flex-wrap gap-2">
             <span class="text-xs bg-azure-600 text-white px-3 py-1.5 rounded-lg font-semibold">WCAG</span>
             <span class="text-xs bg-azure-100 text-azure-700 px-3 py-1.5 rounded-lg font-semibold">Touch Targets</span>
@@ -540,8 +389,8 @@
 
         <!-- Skill block: Future-Proofing -->
         <div class="glass rounded-2xl p-7 card-lift reveal border border-azure-100">
-          <div class="w-12 h-12 bg-azure-600 rounded-2xl flex items-center justify-center text-white text-2xl mb-5">🔮</div>
-          <h3 class="font-display font-bold text-xl text-ink mb-3">Future-Proofing</h3>
+          <div class="w-12 h-12 bg-azure-600 rounded-2xl flex items-center justify-center text-white text-2xl mb-5"></div>
+          <h3 class="font-bold text-xl text-ink mb-3">Future-Proofing</h3>
           <p class="text-sm text-gray-500 mb-5 leading-relaxed">Container Queries and modern CSS features — coding for the device that hasn't been invented yet.</p>
           <div class="flex flex-wrap gap-2">
             <span class="text-xs bg-azure-600 text-white px-3 py-1.5 rounded-lg font-semibold">Container Queries</span>
@@ -564,28 +413,28 @@
         <!-- Left: info -->
         <div class="reveal">
           <p class="text-azure-500 font-semibold text-sm uppercase tracking-widest mb-4">Get In Touch</p>
-          <h2 class="section-title font-display font-bold text-ink mb-6">Let's Build Something Fluid Together</h2>
+          <h2 class="section-title font-bold text-ink mb-6">Let's Build Something Fluid Together</h2>
           <p class="body-text text-gray-500 leading-relaxed mb-10">
             Open to internship and junior frontend roles. I bring a mobile-first mindset, clean semantic HTML, and a passion for accessible, future-proof interfaces.
           </p>
           <!-- Contact details (Flexbox column) -->
-          <div class="flex flex-col gap-5">
+          <div class="flex flex-col items-justify gap-5">
             <div class="flex items-center gap-4 touch-target">
-              <div class="w-11 h-11 bg-azure-100 rounded-xl flex items-center justify-center text-azure-600 text-lg flex-shrink-0">📧</div>
+              <div class="w-11 h-11 bg-azure-100 rounded-xl flex items-center justify-center text-azure-600 text-lg flex-shrink-0"></div>
               <div>
                 <p class="text-xs text-gray-400 font-medium uppercase tracking-wide">Email</p>
-                <p class="body-text font-semibold text-ink">hello@fluidity.dev</p>
+                <p class="body-text font-semibold text-ink">ikpeidongesit01@gmail</p>
               </div>
             </div>
             <div class="flex items-center gap-4 touch-target">
-              <div class="w-11 h-11 bg-azure-100 rounded-xl flex items-center justify-center text-azure-600 text-lg flex-shrink-0">🌍</div>
+              <div class="w-11 h-11 bg-azure-100 rounded-xl flex items-center justify-center text-azure-600 text-lg flex-shrink-0"></div>
               <div>
                 <p class="text-xs text-gray-400 font-medium uppercase tracking-wide">Location</p>
-                <p class="body-text font-semibold text-ink">Lagos, Nigeria</p>
+                <p class="body-text font-semibold text-ink">Akwa ibom, Nigeria</p>
               </div>
             </div>
             <div class="flex items-center gap-4 touch-target">
-              <div class="w-11 h-11 bg-azure-100 rounded-xl flex items-center justify-center text-azure-600 text-lg flex-shrink-0">💼</div>
+              <div class="w-11 h-11 bg-azure-100 rounded-xl flex items-center justify-center text-azure-600 text-lg flex-shrink-0"></div>
               <div>
                 <p class="text-xs text-gray-400 font-medium uppercase tracking-wide">DecodeLabs</p>
                 <p class="body-text font-semibold text-ink">Intern · Frontend Track</p>
@@ -596,14 +445,14 @@
 
         <!-- Right: contact form -->
         <div class="glass rounded-3xl p-8 md:p-10 shadow-xl shadow-azure-100 border border-azure-100 reveal">
-          <h3 class="font-display font-bold text-2xl text-ink mb-8">Send a Message</h3>
+          <h3 class="font-bold text-2xl text-ink mb-8">Send a Message</h3>
 
           <!-- Using div + labels (NOT a <form> tag per best practice) -->
           <div class="flex flex-col gap-5">
 
             <div>
               <label for="name" class="block text-sm font-semibold text-gray-600 mb-2">Full Name</label>
-              <input id="name" type="text" placeholder="Your full name"
+              <input id="name" type="text" placeholder="Idongesit Ikpe"
                      class="w-full h-12 px-4 rounded-xl border border-azure-200 bg-white/80 body-text text-ink placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-azure-400 focus:border-transparent transition"/>
             </div>
 
@@ -625,7 +474,7 @@
             </button>
 
             <p id="form-msg" class="text-center text-sm text-green-600 font-medium hidden">
-              ✅ Message sent! I'll get back to you soon.
+               Message sent! I'll get back to you soon.
             </p>
           </div>
         </div>
@@ -679,35 +528,7 @@
   <!-- ══════════════════════════════════════════════════════════════════
        JAVASCRIPT — Scroll reveal + form feedback only
   ══════════════════════════════════════════════════════════════════ -->
-  <script>
-    // Scroll-triggered reveal animation
-    const observer = new IntersectionObserver(
-      (entries) => entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); }),
-      { threshold: 0.12 }
-    );
-    document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
-
-    // Simple form feedback (no actual submission)
-    function handleSubmit() {
-      const name    = document.getElementById('name').value.trim();
-      const email   = document.getElementById('email').value.trim();
-      const message = document.getElementById('message').value.trim();
-      const msg     = document.getElementById('form-msg');
-
-      if (!name || !email || !message) {
-        msg.textContent = '⚠️ Please fill in all fields.';
-        msg.className = 'text-center text-sm text-red-500 font-medium';
-        msg.classList.remove('hidden');
-        return;
-      }
-      msg.textContent = '✅ Message sent! I\'ll get back to you soon.';
-      msg.className = 'text-center text-sm text-green-600 font-medium';
-      msg.classList.remove('hidden');
-      document.getElementById('name').value = '';
-      document.getElementById('email').value = '';
-      document.getElementById('message').value = '';
-    }
-  </script>
+  <script src="script.js"></script>
 
 </body>
 </html>

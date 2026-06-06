@@ -1,0 +1,113 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* ── Fluid Typography with clamp() ────────────────────────────────── */
+
+:root {
+    --fs-hero:    clamp(2.2rem, 6vw, 5rem);
+    --fs-section: clamp(1.5rem, 3.5vw, 2.8rem);
+    --fs-card:    clamp(1rem,   2vw,  1.25rem);
+    --fs-body:    clamp(0.9rem, 1.5vw, 1.05rem);
+  }
+
+  body { font-family: 'DM Sans', sans-serif; background: #f8fafd; color: #0a1628; }
+
+  .font-display { font-family: 'Syne', sans-serif; }
+
+  .hero-title  { font-size: var(--fs-hero);    line-height: 1.05; }
+  .section-title { font-size: var(--fs-section); line-height: 1.15; }
+  .card-title  { font-size: var(--fs-card); }
+  .body-text   { font-size: var(--fs-body); }
+
+  /* ── Blueprint grid background ────────────────────────────────────── */
+  .blueprint-bg {
+    background-color: #f0f6ff;
+    background-image:
+      linear-gradient(rgba(11,127,232,.07) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(11,127,232,.07) 1px, transparent 1px);
+    background-size: 40px 40px;
+  }
+
+  /* ── Glassmorphism card ───────────────────────────────────────────── */
+  .glass {
+    background: rgba(255,255,255,0.72);
+    backdrop-filter: blur(14px);
+    -webkit-backdrop-filter: blur(14px);
+    border: 1px solid rgba(255,255,255,0.6);
+  }
+
+  /* ── Fluid wave divider ───────────────────────────────────────────── */
+  .wave { display: block; width: 100%; overflow: hidden; line-height: 0; }
+  .wave svg { display: block; }
+
+  /* ── Touch targets (min 44×44 px) ────────────────────────────────── */
+  .touch-target {
+    min-height: 44px;
+    min-width:  44px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  /* ── Popover navigation (No JS required) ─────────────────────────── */
+  #mobile-nav {
+    position: fixed;
+    inset: 0 0 0 auto;
+    width: min(75vw, 320px);
+    background: white;
+    box-shadow: -8px 0 40px rgba(0,0,0,.15);
+    border-left: 1px solid #e2ecff;
+    padding: 2rem 1.5rem;
+    margin: 0;
+    border-radius: 0;
+    z-index: 100;
+    transition: transform .35s cubic-bezier(.16,1,.3,1), opacity .3s ease;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+  #mobile-nav:not(:popover-open) { display: none; }
+  #mobile-nav::backdrop {
+    background: rgba(10,22,40,.45);
+    backdrop-filter: blur(3px);
+  }
+
+  /* ── Scroll-triggered animation helper ───────────────────────────── */
+  .reveal {
+    opacity: 0;
+    transform: translateY(28px);
+    transition: opacity .6s ease, transform .6s ease;
+  }
+  .reveal.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  /* ── Card hover lift ─────────────────────────────────────────────── */
+  .card-lift {
+    transition: transform .25s ease, box-shadow .25s ease;
+  }
+  .card-lift:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 20px 50px rgba(11,127,232,.13);
+  }
+
+  /* ── Active nav link underline ───────────────────────────────────── */
+  .nav-link {
+    position: relative;
+    transition: color .2s;
+  }
+  .nav-link::after {
+    content: '';
+    position: absolute;
+    left: 0; bottom: -3px;
+    height: 2px; width: 0;
+    background: #0b7fe8;
+    transition: width .3s ease;
+    border-radius: 99px;
+  }
+  .nav-link:hover::after { width: 100%; }
+  .nav-link:hover { color: #0b7fe8; }
