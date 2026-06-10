@@ -13,12 +13,12 @@ function handleSubmit() {
   const msg     = document.getElementById('form-msg');
 
   if (!name || !email || !message) {
-    msg.textContent = '⚠️ Please fill in all fields.';
+    msg.textContent = ' Please fill in all fields.';
     msg.className = 'text-center text-sm text-red-500 font-medium';
     msg.classList.remove('hidden');
     return;
   }
-  msg.textContent = '✅ Message sent! I\'ll get back to you soon.';
+  msg.textContent = ' Message sent! I\'ll get back to you soon.';
   msg.className = 'text-center text-sm text-green-600 font-medium';
   msg.classList.remove('hidden');
   document.getElementById('name').value = '';
